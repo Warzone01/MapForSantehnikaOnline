@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MapForSantehnikaOnline</string>
+    <string name="point_not_set">Точка не задана</string>
+    <string name="show_on_map">Показать на карте</string>
+    <string name="apply_selected_point">Подтвердить выбранную точку</string>
+    <string name="selected_coordinates">Выбранные координаты:\n%s</string>
+</resources>

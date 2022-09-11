@@ -8,6 +8,8 @@ object Constants {
     const val LONGITUDE = "longitude"
     const val LATITUDE = "latitude"
     const val ZOOM = "zoom"
+    const val AZIMUTH = "azimuth"
+    const val TILT = "tilt"
 
     const val DEFAULT_COORDINATES = 0.0
 }

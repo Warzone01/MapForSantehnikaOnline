@@ -36,6 +36,8 @@ class MapFragment : Fragment(), InputListener {
     private var latitude: Double? = null
     private var addressName: String? = null
     private var zoom: Float = 18.0f
+    private var azimuth: Float = 0.0f
+    private var tilt: Float = 0.0f
 
     private var duration: Float = 0.5f
 
@@ -99,6 +101,8 @@ class MapFragment : Fragment(), InputListener {
                 putString(Constants.ADDRESS_NAME, addressName)
             }
             putFloat(Constants.ZOOM, mapView.map.cameraPosition.zoom)
+            putFloat(Constants.AZIMUTH, mapView.map.cameraPosition.azimuth)
+            putFloat(Constants.TILT, mapView.map.cameraPosition.tilt)
         }
         super.onSaveInstanceState(outState)
     }
@@ -145,8 +149,8 @@ class MapFragment : Fragment(), InputListener {
             CameraPosition(
                 Point(latitude, longitude),
                 zoom,
-                0.0f,
-                0.0f
+                azimuth,
+                tilt
             ),
             Animation(Animation.Type.SMOOTH, duration),
             null
@@ -189,6 +193,8 @@ class MapFragment : Fragment(), InputListener {
         longitude = bundle.getString(Constants.LONGITUDE)?.toDouble()
         latitude = bundle.getString(Constants.LATITUDE)?.toDouble()
         zoom = bundle.getFloat(Constants.ZOOM, zoom)
+        azimuth = bundle.getFloat(Constants.AZIMUTH, azimuth)
+        tilt = bundle.getFloat(Constants.TILT, tilt)
         addressName = bundle.getString(Constants.ADDRESS_NAME, "")
         if (longitude != null && latitude != null) {
             placemark = mapView.map.mapObjects.addPlacemark(
